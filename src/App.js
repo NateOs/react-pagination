@@ -10,7 +10,8 @@ function App() {
   useEffect(() => {
     if (loading) return
     setFollowers(data[page])
-  }, [loading])
+  }, [loading, page])
+
 
   return (
   <main>
@@ -24,6 +25,12 @@ function App() {
           return <Follower key={follower.id} {...follower}/>
         })}
       </div>
+      {!loading && 
+      <div className='btn-container'>
+        {data.map((item, index) => {
+          return <button key={index} className={`page-btn ${index === page ? 'active-btn' : null}`} onClick={() => setPage(index)}>{index + 1}</button>
+        })}
+      </div>}
     </section>
   </main>)
 }

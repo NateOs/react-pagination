@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Follower = ({login, avatar_url, html_url}) => {
-  
   return (
     <article className='card'>
       <img src={avatar_url} alt={login}/>
