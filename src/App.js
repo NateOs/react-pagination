@@ -12,6 +12,23 @@ function App() {
     setFollowers(data[page])
   }, [loading, page])
 
+  const handlePrevious = () => {
+    let oldPage = page
+    if (oldPage > 0) {
+      setPage(oldPage - 1)
+    } else {
+      setPage(data.length - 1)
+    }
+  }
+
+  const handleNext = () => {
+    let oldPage = page
+    if (oldPage < data.length - 1) {
+      setPage(oldPage + 1)
+    } else {
+      setPage(0)
+    }
+  }
 
   return (
   <main>
@@ -27,9 +44,11 @@ function App() {
       </div>
       {!loading && 
       <div className='btn-container'>
+        <button className='page-btn' onClick={handlePrevious}>Prev</button>
         {data.map((item, index) => {
           return <button key={index} className={`page-btn ${index === page ? 'active-btn' : null}`} onClick={() => setPage(index)}>{index + 1}</button>
         })}
+        <button className='page-btn' onClick={handleNext}>Next</button>
       </div>}
     </section>
   </main>)
