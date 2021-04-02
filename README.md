@@ -3,4 +3,4 @@
 Demonstrating client side pagination.
 
 Hosted here: 
-[Netlify](react-pagination1.netlify.app)
+https://react-pagination1.netlify.app/
